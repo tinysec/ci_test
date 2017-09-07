@@ -1,0 +1,33 @@
+!IF "$(_BUILDARCH)"=="AMD64"
+
+TARGETNAME=ci_test64
+
+!ELSE
+
+TARGETNAME=ci_test
+
+!ENDIF 
+#_BUILDARCH
+
+TARGETTYPE=DRIVER
+
+BUFFER_OVERFLOW_CHECKS=1
+
+C_DEFINES=$(C_DEFINES) /D_WDK_BUILD /DWDK_BUILD
+
+INCLUDES=$(INCLUDES);\
+$(DDK_INC_PATH);\
+$(CRT_INC_PATH);\
+$(SDK_INC_PATH); \
+			
+#dynamic link libs	
+TARGETLIBS= \
+$(DDK_LIB_PATH)\ntoskrnl.lib 
+
+LINKER_FLAGS = $(LINKER_FLAGS) /integritycheck
+
+
+SOURCES = \
+main.c \
+version.rc \
+		
