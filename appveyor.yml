@@ -1,0 +1,10 @@
+version: 1.0.{build}
+image: Visual Studio 2015
+init:
+- cmd: echo "init script"
+environment:
+  W7BASE: C:\WinDDK\7600.16385.1
+install:
+- cmd: echo "install script"
+build_script:
+- cmd: ddkbuild.cmd -WIN7A64 Free . -c -g -Z
