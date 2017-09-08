@@ -11,7 +11,6 @@ install:
 - cmd: echo "install script"
 build_script:
 - cmd: >-
-    ddkbuild.cmd -WIN7 Free . -c -g -Z
     ddkbuild.cmd -WIN7A64 Free . -c -g -Z
 deploy:
 - provider: GitHub
