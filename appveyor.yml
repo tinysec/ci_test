@@ -46,7 +46,6 @@ build_script:
 
     copy objchk_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_checked\ci_test64.pdb
 
-
     copy objfre_win7_amd64\amd64\ci_test64.sys .\dist\amd64_free\ci_test64.sys
 
     copy objfre_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_free\ci_test64.pdb
