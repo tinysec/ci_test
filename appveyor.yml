@@ -24,7 +24,6 @@ build_script:
     mkdir dist\amd64_free
 
 
-
     call ddkbuild.cmd -WIN7A64 Checked . -c -g -Z
 
     call ddkbuild.cmd -WIN7A64 Free . -c -g -Z
@@ -33,7 +32,6 @@ build_script:
     call ddkbuild.cmd -WIN7 Checked . -c -g -Z
 
     call ddkbuild.cmd -WIN7 Free . -c -g -Z
-
 
 
     copy objchk_win7_x86\i386\ci_test.sys .\dist\i386_checked\ci_test.sys
