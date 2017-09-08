@@ -28,7 +28,6 @@ build_script:
 
     call ddkbuild.cmd -WIN7A64 Free . -c -g -Z
 
-
     call ddkbuild.cmd -WIN7 Checked . -c -g -Z
 
     call ddkbuild.cmd -WIN7 Free . -c -g -Z
@@ -37,7 +36,6 @@ build_script:
     copy objchk_win7_x86\i386\ci_test.sys .\dist\i386_checked\ci_test.sys
 
     copy objchk_win7_x86\i386\ci_test.pdb .\dist\i386_checked\ci_test.pdb
-
 
     copy objfre_win7_x86\i386\ci_test.sys .\dist\i386_free\ci_test.sys
 
