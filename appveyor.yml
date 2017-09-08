@@ -10,10 +10,12 @@ environment:
 install:
 - cmd: echo "install script"
 build_script:
-- cmd: ddkbuild.cmd -WIN7A64 Free . -c -g -Z
+- cmd: appveyor.bat
+- cmd: 7z a dist.zip dist\*.*
 artifacts:
-- path: objfre_win7_amd64\amd64\ci_test64.sys
-  name: cI_test_64
+- path: dist.zip
+  name: dist
+  type: zip
 deploy:
 - provider: GitHub
   auth_token:
