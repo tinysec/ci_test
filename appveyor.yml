@@ -11,12 +11,21 @@ install:
 - cmd: echo "install script"
 build_script:
 - cmd: >-
+    echo "[+] start build i386"
     ddkbuild.cmd -WIN7 Free . -c -g -Z
-
+    echo "[+] start build AMD64"
     ddkbuild.cmd -WIN7A64 Free . -c -g -Z
 artifacts:
 - path: objfre_win7_amd64\amd64\ci_test64.sys
-  name: cI_test_amd64
+  name: cI_test_64
+- path: objfre_win7_i386\i386\ci_test.sys
+  name: cI_test_32
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: Atw6kBuhAIlZQk7zM/dsJEe704hQ85aNn8IHIXhlBpvUUAXBMdK6FWH5Tzac2pva
+  draft: true
+  force_update: false
 on_success:
 - cmd: echo "build success"
 on_failure:
