@@ -53,7 +53,7 @@ build_script:
 
     copy .\objfre_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_free\ci_test64.pdb
 
-
+    7z a dist.zip dist\*
     echo "done."
 artifacts:
 - path: dist.zip
