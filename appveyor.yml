@@ -1,13 +1,25 @@
-version: 1.0.{build}
+version: 1.0.0.{build}
+branches:
+  only:
+  - driver
 image: Visual Studio 2015
 init:
 - cmd: echo "init script"
-- cmd: ipconfig
 environment:
   W7BASE: C:\WinDDK\7600.16385.1
 install:
 - cmd: echo "install script"
 build_script:
-- cmd: dir
-- cmd: net user
-- cmd: ddkbuild.cmd -WIN7A64 Free . -c -g -Z
+- cmd: >-
+    ddkbuild.cmd -WIN7 Free . -c -g -Z
+
+    ddkbuild.cmd -WIN7A64 Free . -c -g -Z
+artifacts:
+- path: objfre_win7_amd64\amd64\ci_test64.sys
+  name: cI_test_amd64
+on_success:
+- cmd: echo "build success"
+on_failure:
+- cmd: echo "build error"
+on_finish:
+- cmd: echo "build finish"
