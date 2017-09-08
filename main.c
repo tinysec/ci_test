@@ -47,7 +47,7 @@ NTSTATUS NTAPI DriverEntry(__in DRIVER_OBJECT* pDriverObject , __in UNICODE_STRI
 		}
 		
 		KdPrint(("[*] %s(%d) start! \n"  , __FUNCTION__, __LINE__ ));
-
+a
 
 		FinalStatus = STATUS_SUCCESS;
 	} while (FALSE);
