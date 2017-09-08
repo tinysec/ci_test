@@ -65,6 +65,8 @@ deploy:
     secure: Atw6kBuhAIlZQk7zM/dsJEe704hQ85aNn8IHIXhlBpvUUAXBMdK6FWH5Tzac2pva
   draft: true
   force_update: false
+  on:
+    APPVEYOR_REPO_TAG: true
 on_success:
 - cmd: echo "build success"
 on_failure:
