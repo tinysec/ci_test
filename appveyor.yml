@@ -12,6 +12,7 @@ install:
 build_script:
 - cmd: >-
     cd src
+    
     mkdir dist
 
     mkdir dist\i386_checked
