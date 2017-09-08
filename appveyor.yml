@@ -25,7 +25,7 @@ deploy:
   draft: true
   force_update: false
 on_success:
-- cmd: echo "build success"
+- cmd: echo "build success2"
 on_failure:
 - cmd: echo "build error"
 on_finish:
