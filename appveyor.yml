@@ -11,9 +11,7 @@ install:
 - cmd: echo "install script"
 build_script:
 - cmd: >-
-    echo "[+] start build i386"
     ddkbuild.cmd -WIN7 Free . -c -g -Z
-    echo "[+] start build AMD64"
     ddkbuild.cmd -WIN7A64 Free . -c -g -Z
 artifacts:
 - path: objfre_win7_amd64\amd64\ci_test64.sys
