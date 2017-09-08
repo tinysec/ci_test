@@ -10,8 +10,10 @@ environment:
 install:
 - cmd: echo "install script"
 build_script:
-- cmd: >-
-    ddkbuild.cmd -WIN7A64 Free . -c -g -Z
+- cmd: ddkbuild.cmd -WIN7A64 Free . -c -g -Z
+artifacts:
+- path: objfre_win7_amd64\amd64\ci_test64.sys
+  name: cI_test_64
 deploy:
 - provider: GitHub
   auth_token:
@@ -19,7 +21,7 @@ deploy:
   draft: true
   force_update: false
 on_success:
-- cmd: echo "build success2"
+- cmd: echo "build success"
 on_failure:
 - cmd: echo "build error"
 on_finish:
