@@ -11,49 +11,50 @@ install:
 - cmd: echo "install script"
 build_script:
 - cmd: >-
-    mkdir .\src\dist
+    cd src
+    mkdir dist
 
-    mkdir .\src\dist\i386_checked
+    mkdir dist\i386_checked
 
-    mkdir .\src\dist\i386_free
+    mkdir dist\i386_free
 
-    mkdir .\src\dist\amd64_checked
+    mkdir dist\amd64_checked
 
-    mkdir .\src\dist\amd64_free
-
-
-
-    call .\src\ddkbuild.cmd -WIN7A64 Checked . -c -g -Z
-
-    call .\src\ddkbuild.cmd -WIN7A64 Free . -c -g -Z
-
-
-    call .\src\ddkbuild.cmd -WIN7 Checked . -c -g -Z
-
-    call .\src\ddkbuild.cmd -WIN7 Free . -c -g -Z
+    mkdir dist\amd64_free
 
 
 
-    copy .\src\objchk_win7_x86\i386\ci_test.sys .\dist\i386_checked\ci_test.sys
+    call ddkbuild.cmd -WIN7A64 Checked . -c -g -Z
 
-    copy .\src\objchk_win7_x86\i386\ci_test.pdb .\dist\i386_checked\ci_test.pdb
-
-
-    copy .\src\objfre_win7_x86\i386\ci_test.sys .\dist\i386_free\ci_test.sys
-
-    copy .\src\objfre_win7_x86\i386\ci_test.pdb .\dist\i386_free\ci_test.pdb
+    call ddkbuild.cmd -WIN7A64 Free . -c -g -Z
 
 
-    copy .\src\objchk_win7_amd64\amd64\ci_test64.sys .\dist\amd64_checked\ci_test64.sys
+    call ddkbuild.cmd -WIN7 Checked . -c -g -Z
 
-    copy .\src\objchk_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_checked\ci_test64.pdb
+    call ddkbuild.cmd -WIN7 Free . -c -g -Z
 
 
-    copy .\src\objfre_win7_amd64\amd64\ci_test64.sys .\dist\amd64_free\ci_test64.sys
 
-    copy .\src\objfre_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_free\ci_test64.pdb
+    copy objchk_win7_x86\i386\ci_test.sys .\dist\i386_checked\ci_test.sys
 
-    7z a .\src\dist.zip .\src\dist\*
+    copy objchk_win7_x86\i386\ci_test.pdb .\dist\i386_checked\ci_test.pdb
+
+
+    copy objfre_win7_x86\i386\ci_test.sys .\dist\i386_free\ci_test.sys
+
+    copy objfre_win7_x86\i386\ci_test.pdb .\dist\i386_free\ci_test.pdb
+
+
+    copy objchk_win7_amd64\amd64\ci_test64.sys .\dist\amd64_checked\ci_test64.sys
+
+    copy objchk_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_checked\ci_test64.pdb
+
+
+    copy objfre_win7_amd64\amd64\ci_test64.sys .\dist\amd64_free\ci_test64.sys
+
+    copy objfre_win7_amd64\amd64\ci_test64.pdb .\dist\amd64_free\ci_test64.pdb
+
+    7z a dist.zip dist\*
     
     echo "done."
 artifacts:
