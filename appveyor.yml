@@ -11,7 +11,7 @@ install:
 - cmd: echo "install script"
 build_script:
 - cmd: .\appveyor\ci_build.bat
-- cmd: 7z a dist.zip dist\*.*
+- cmd: 7z a dist.zip dist\*
 artifacts:
 - path: dist.zip
   name: dist
