@@ -13,11 +13,6 @@ build_script:
 - cmd: >-
     ddkbuild.cmd -WIN7 Free . -c -g -Z
     ddkbuild.cmd -WIN7A64 Free . -c -g -Z
-artifacts:
-- path: objfre_win7_amd64\amd64\ci_test64.sys
-  name: cI_test_64
-- path: objfre_win7_i386\i386\ci_test.sys
-  name: cI_test_32
 deploy:
 - provider: GitHub
   auth_token:
